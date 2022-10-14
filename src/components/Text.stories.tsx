@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { Text, TextProps } from './Text';
+import { Meta, StoryObj } from '@storybook/react'
+import { Text, TextProps } from './Text'
 
 export default {
   title: 'Components/Text',
   component: Text,
   args: {
-    children: 'Lorem ipsum',
-    size: 'md'
+    children: 'Lorem ipsum.',
+    size: 'md',
   },
   argTypes: {
     size: {
@@ -25,6 +25,7 @@ export const Small: StoryObj<TextProps> = {
     size: 'sm'
   }
 }
+
 export const Large: StoryObj<TextProps> = {
   args: {
     size: 'lg'
@@ -41,12 +42,12 @@ export const CustomComponent: StoryObj<TextProps> = {
   argTypes: {
     children: {
       table: {
-        disable: true
+        disable: true,
       }
     },
     asChild: {
       table: {
-        disable: true
+        disable: true,
       }
     }
   }

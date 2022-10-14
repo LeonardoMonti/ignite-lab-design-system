@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { Heading, HeadingProps } from './Heading';
+import { Meta, StoryObj } from '@storybook/react'
+import { Heading, HeadingProps } from './Heading'
 
 export default {
   title: 'Components/Heading',
   component: Heading,
   args: {
-    children: 'Lorem ipsum',
-    size: 'md'
+    children: 'Lorem ipsum.',
+    size: 'md',
   },
   argTypes: {
     size: {
@@ -25,6 +25,7 @@ export const Small: StoryObj<HeadingProps> = {
     size: 'sm'
   }
 }
+
 export const Large: StoryObj<HeadingProps> = {
   args: {
     size: 'lg'
@@ -41,12 +42,12 @@ export const CustomComponent: StoryObj<HeadingProps> = {
   argTypes: {
     children: {
       table: {
-        disable: true
+        disable: true,
       }
     },
     asChild: {
       table: {
-        disable: true
+        disable: true,
       }
     }
   }
