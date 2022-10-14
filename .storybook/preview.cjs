@@ -3,7 +3,9 @@ import { initialize, mswDecorator } from 'msw-storybook-addon';
 
 import '../src/styles/Global.css';
 
-initialize();
+initialize({
+  onUnhandLedRequest: "bypass"
+});
 
 export const decorators = [mswDecorator];
 
