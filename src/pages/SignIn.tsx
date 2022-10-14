@@ -1,18 +1,23 @@
-import { Envelope, Lock } from "phosphor-react";
+import { Checkbox } from "@radix-ui/react-checkbox";
 import { FormEvent, useState } from "react";
-// import axios from 'axios';
+import axios from 'axios'
+import { Envelope, Lock } from "phosphor-react";
 import { Button } from "../components/Button";
-import { Checkbox } from "../components/Checkbox";
 import { Heading } from "../components/Heading";
-import { Text } from "../components/Text";
 import { TextInput } from "../components/TextInput";
+import { Text } from "../components/Text";
 import { Logo } from "../Logo";
 
 export function SignIn() {
   const [isUserSignedIn, setIsUserSignedIn] = useState(false)
 
-  function HandleSignIn(event: FormEvent) {
-    event?.preventDefault()
+  async function handleSignIn(event: FormEvent) {
+    event.preventDefault()
+
+    await axios.post('/sessions', {
+      email: 'leonardo@mail.com.br',
+      password: '12345678',
+    })
 
     setIsUserSignedIn(true)
   }
@@ -31,8 +36,9 @@ export function SignIn() {
         </Text>
       </header>
 
-      <form onSubmit={HandleSignIn} className="flex flex-col gap-4 items-stretch w-full max-w-sm mt-10">
-        { isUserSignedIn && <Text>Login realizado!</Text>}
+      <form onSubmit={handleSignIn} className="flex flex-col gap-4 items-stretch w-full max-w-sm mt-10">
+        { isUserSignedIn && <Text>Login realizado!</Text> }
+
         <label htmlFor="email" className="flex flex-col gap-3">
           <Text className="font-semibold">Endereço de e-mail</Text>
           <TextInput.Root>
@@ -65,10 +71,10 @@ export function SignIn() {
 
       <footer className="flex flex-col items-center gap-4 mt-8">
         <Text asChild size="sm">
-          <a href="#" className="text-gray-400 underline hover:text-gray-200">Esqueceu sua senha?</a>
+          <a href="" className="text-gray-400 underline hover:text-gray-200">Esqueceu sua senha?</a>
         </Text>
         <Text asChild size="sm">
-          <a href="#" className="text-gray-400 underline hover:text-gray-200">Não possui conta? Crie uma agora!</a>
+          <a href="" className="text-gray-400 underline hover:text-gray-200">Não possui conta? Crie uma agora!</a>
         </Text>
       </footer>
     </div>
